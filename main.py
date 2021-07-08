@@ -4,8 +4,7 @@ import playsound
 import speech_recognition as sr
 from gtts import gTTS
 
-import selenium
-
+from browser_websites import Browser
 
 def speak(text):
     tts = gTTS(text=text, lang="en")  # transform text into a aduio file in the language of english
@@ -34,9 +33,15 @@ def list_of_microphones():
         print("Microphone with name \"{1}\" found for `Microphone(device_index={0})`".format(index, name))
 
 
+# Runner
+browser = Browser()
+
 speak("hello Jshi")
 # list_of_microphones()
 text = get_audio()
 
-if "ok" in text:
-    speak("ok")
+if "Google" in text:
+    speak("you said google")
+    browser.google()
+if "good" in text:
+    speak("you said good")
