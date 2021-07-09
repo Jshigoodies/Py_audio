@@ -1,6 +1,8 @@
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException
 
+from selenium.webdriver.chrome.options import Options
+
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 
@@ -14,7 +16,10 @@ class Browser:
             NoSuchElementException, StaleElementReferenceException,)
 
     def run(self, command):  # i'm going to use this later to make the code look cleaner
-        pass
+        if "Google" in command:
+            self.google()
+        elif "Bing" in command:
+            self.bing()
 
     def google(self):
         self.driver = webdriver.Chrome(self.PATH)

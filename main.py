@@ -28,7 +28,7 @@ class MainSetUp:
             try:
                 said = r.recognize_google(audio)
             except Exception as e:
-                print("Exception: " + str(e))
+                print("Could not hear")
 
         return said
 

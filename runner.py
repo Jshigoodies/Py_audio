@@ -5,7 +5,6 @@ from main import MainSetUp
 main = MainSetUp()
 
 web_browser = main.browser
-driver = main.browser.driver
 
 print("\033[1;32;40m [Kanna-Chan]: Start up successful")
 main.speak("Start up successful")
@@ -28,24 +27,22 @@ while True:
             text.lower()
 
             print(text)  # temporary solution
-            if "Google" in text:
-                web_browser.google()
-                num = num + 1
-            elif "Bing" in text:
-                web_browser.bing()
-                num = num + 1
+            if "open" in text:
+                if num != -1:  # browser is already opened
+                    num = -1
+                    main.browser.driver.close()
+
+                web_browser.run(text)
+                num = 0  # opening a browser
+            elif "close browser" in text:
+                main.browser.driver.close()
+                num = -1
             elif "stop" in text:
                 print("\033[1;32;40m [Kanna-Chan]: Goodbye")
                 main.speak("Goodbye")
                 exit()
-            else:
-                print("\033[1;31;40m [Kanna-Chan]: I'm sorry, that is not a command")
-                main.speak("I'm sorry, that is not a command")
 
     elif "stop" in text:
-        print("\033[1;32;40m [Kanna-Chan]: Goodbye")
-        main.speak("Goodbye")
+        print("\033[1;32;40m [Kanna-Chan]: Bruh, you just started it")
+        main.speak("Bruh, you just started it")
         exit()
-    else:
-        print("\033[1;31;40m [Kanna-Chan]: I'm sorry, that is not a command")
-        main.speak("I'm sorry, that is not a command")
