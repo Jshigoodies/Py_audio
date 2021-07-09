@@ -13,6 +13,13 @@ class Browser:
         self.ignored_exceptions = (
             NoSuchElementException, StaleElementReferenceException,)
 
+    def run(self, command):  # i'm going to use this later to make the code look cleaner
+        pass
+
     def google(self):
         self.driver = webdriver.Chrome(self.PATH)
         self.driver.get("https://www.google.com/")
+
+    def bing(self):
+        self.driver = webdriver.Chrome(self.PATH)
+        self.driver.get("https://www.bing.com/")
