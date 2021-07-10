@@ -10,6 +10,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 from main import MainSetUp  # i might use this in the future
 
+main = MainSetUp
+
+
 class Browser:
     def __init__(self):
         self.driver = None
@@ -40,6 +43,7 @@ class Browser:
         self.driver = webdriver.Chrome(self.PATH)
         self.driver.get("https://howdy.tamu.edu/uPortal/normal/render.uP")
         try:
-            loginButton = WebDriverWait(self.driver, 5).until(EC.presence_of_element_located((By.XPATH, '//*[@id="loginbtn"]')))
+            loginButton = WebDriverWait(self.driver, 5).until(
+                EC.presence_of_element_located((By.XPATH, '//*[@id="loginbtn"]')))
         finally:
             loginButton.click()
