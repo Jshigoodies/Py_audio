@@ -8,9 +8,9 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 
-from main import MainSetUp  # i might use this in the future
+# from main import MainSetUp  # i might use this in the future
 
-main = MainSetUp
+# main = MainSetUp
 
 
 class Browser:
