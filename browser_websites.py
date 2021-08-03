@@ -8,9 +8,9 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 
-# from main import MainSetUp  # i might use this in the future
+from browser_main import BrowserMainSetUp  # i might use this in the future
 
-# main = MainSetUp
+browserMain = BrowserMainSetUp
 
 
 class Browser:
@@ -47,3 +47,12 @@ class Browser:
                 EC.presence_of_element_located((By.XPATH, '//*[@id="loginbtn"]')))
         finally:
             loginButton.click()
+
+        while True:
+            text = browserMain.get_audio()
+            text = text.lower()
+            if "close browser" in text:
+                self.driver.close()
+                print("[Kanna-Chan]: closing browser")
+                browserMain.speak("closing browser")
+                break

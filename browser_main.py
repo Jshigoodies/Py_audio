@@ -5,7 +5,7 @@ import speech_recognition as sr
 from gtts import gTTS
 
 
-class MainSetUp:
+class BrowserMainSetUp:
 
     @staticmethod
     def speak(text):
